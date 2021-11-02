@@ -1,7 +1,7 @@
 <?php
 
 if (false === function_exists('xpc_progress')) {
-	function xpc_progress ($done, $total, $text = null)
+	function xpc_progress($done, $total, $text = null)
     {
 		if (!$total) {
             return;
@@ -13,13 +13,13 @@ if (false === function_exists('xpc_progress')) {
     	
         $bar_sign   = '#';
         $empty_sign = '-';
-    	$filled     = xpc_out(str_repeat($bar_sign, $bar), 'f-green', true);
+    	$filled     = xpc_out(str_repeat($bar_sign, (int) $bar), 'f-green', true);
     	$empty      = str_repeat($empty_sign, ((($diff = $width - $bar) > 0) ? $diff : 0));
 
         $done    = round($done, 2);
         $total   = round($total, 2);
         $percent = round($percent, 2);
-        $len     = strlen($total) + 3;
+        $len     = strlen((string) $total) + 3;
 
     	$msg = sprintf(
     		" %' {$len}s / %s [%s%s] %3d%%",
