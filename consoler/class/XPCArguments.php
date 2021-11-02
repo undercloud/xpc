@@ -5,13 +5,24 @@ namespace XPC;
  */
 class XPCArguments
 {
+    /**
+     * @var array
+     */
     private $arguments;
 
+    /**
+     * XPCArguments constructor.
+     * @param array $arguments
+     */
     public function __construct(array $arguments)
     {
         $this->arguments = $arguments;
     }
 
+    /**
+     * @param $name
+     * @return bool|mixed
+     */
     public function __get($name)
     {
         $stack = XPCOptionStack::exportStack();

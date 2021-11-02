@@ -1,6 +1,10 @@
 <?php
 
 if (false === function_exists('xpc_in')) {
+    /**
+     * @param null|string $prompt
+     * @return string
+     */
 	function xpc_in($prompt = null)
 	{
 		if (null !== $prompt) {
@@ -13,6 +17,10 @@ if (false === function_exists('xpc_in')) {
 }
 
 if (false === function_exists('xpc_hidden_in')) {
+    /**
+     * @param null|string $prompt
+     * @return string
+     */
 	function xpc_hidden_in($prompt = null)
 	{
 		if (null !== $prompt) {

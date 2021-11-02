@@ -1,6 +1,11 @@
 <?php
 
 if (false === function_exists('xpc_status')) {
+    /**
+     * @param int $type
+     * @param string $msg
+     * @return void
+     */
 	function xpc_status ($type, $msg)
 	{
 		switch ($type) {

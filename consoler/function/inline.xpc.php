@@ -1,6 +1,12 @@
 <?php
 
 if (false === function_exists('xpc_inline')) {
+    /**
+     * @param $msg
+     * @param int $padlength
+     * @param bool $firstline
+     * @return string
+     */
 	function xpc_inline ($msg, $padlength = 0, $firstline = true)
 	{
 		$lines = wordwrap($msg, XPC_TERM_SIZE - $padlength, XPC_PHP_EOL, true);

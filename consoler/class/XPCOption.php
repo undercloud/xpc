@@ -1,35 +1,67 @@
 <?php
 namespace XPC;
-
+/**
+ * Class XPCOption
+ * @package XPC
+ */
 class XPCOption
 {
     const REQUIRED = ':';
 
     const OPTIONAL = '::';
 
+    /**
+     * @var string
+     */
     private $name;
 
+    /**
+     * @var string
+     */
     private $description;
 
+    /**
+     * @var string
+     */
     private $shortName;
 
+    /**
+     * @var string
+     */
     private $longName;
 
+    /**
+     * @var int[]
+     */
     private $format = array(0, 0);
 
+    /**
+     * @var mixed
+     */
     private $defaults;
 
+    /**
+     * XPCOption constructor.
+     * @param string $name
+     */
     public function __construct($name)
     {
         $this->name = $name;
         XPCOptionStack::pushStack($name, $this);
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @param string $description
+     * @return $this
+     */
     public function setDescription($description)
     {
         $this->description = $description;
@@ -37,21 +69,35 @@ class XPCOption
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
     }
 
+    /**
+     * @param string $defaults
+     */
     public function setDefaults($defaults)
     {
         $this->defaults = $defaults;
     }
 
+    /**
+     * @return mixed
+     */
     public function getDefaults()
     {
         return $this->defaults;
     }
 
+    /**
+     * @param string $longName
+     * @param bool $required
+     * @return $this
+     */
     public function setLongName($longName, $required = true)
     {
         XPCOptionStack::setMaxLongLength($longName);
@@ -62,11 +108,19 @@ class XPCOption
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getLongName()
     {
         return $this->longName;
     }
 
+    /**
+     * @param string $shortName
+     * @param bool $required
+     * @return $this
+     */
     public function setShortName($shortName, $required = true)
     {
         XPCOptionStack::setMaxShortLength($shortName);
@@ -77,11 +131,19 @@ class XPCOption
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getShortName()
     {
         return $this->shortName;
     }
 
+    /**
+     * @param int $shortNameLength
+     * @param int $longNameLength
+     * @return $this
+     */
     public function setFormat($shortNameLength, $longNameLength)
     {
         $this->format = array(
@@ -92,6 +154,9 @@ class XPCOption
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function export()
     {
         return array(
@@ -100,6 +165,9 @@ class XPCOption
         );
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         $shortName   = $this->shortName ? '-'  . $this->shortName : '';

@@ -1,6 +1,11 @@
 <?php
 
 if (false === function_exists('xpc_outln')) {
+    /**
+     * @param string $msg
+     * @param null $style
+     * @return void
+     */
     function xpc_outln ($msg = '', $style = null)
     {
         xpc_out($msg . XPC_PHP_EOL, $style);
@@ -8,6 +13,12 @@ if (false === function_exists('xpc_outln')) {
 }
 
 if (false === function_exists('xpc_out')) {
+    /**
+     * @param $msg
+     * @param null $style
+     * @param false $return
+     * @return array|string
+     */
     function xpc_out($msg, $style = null, $return = false)
     {
         if(!$style){

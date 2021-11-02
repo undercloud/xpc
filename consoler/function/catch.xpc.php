@@ -1,6 +1,9 @@
 <?php
 
 if (false === function_exists('xpc_catch')) {
+    /**
+     * @param callable|null $handler
+     */
 	function xpc_catch(callable $handler = null)
 	{
 		$proxy = function (array $arguments) use ($handler) {

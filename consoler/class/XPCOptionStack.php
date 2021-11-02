@@ -1,19 +1,38 @@
 <?php
 namespace XPC;
-
+/**
+ * Class XPCOptionStack
+ * @package XPC
+ */
 class XPCOptionStack
 {
+    /**
+     * @var int
+     */
     private static $maxShortLength = 0;
 
+    /**
+     * @var int
+     */
     private static $maxLongLength = 0;
 
+    /**
+     * @var array
+     */
     private static $stack = array();
 
+    /**
+     * @param string $name
+     * @param XPCOption $xpcOption
+     */
     public static function pushStack($name, XPCOption $xpcOption)
     {
         self::$stack[$name] = $xpcOption;
     }
 
+    /**
+     * @param int $maxShortLength
+     */
     public static function setMaxShortLength($maxShortLength)
     {
         self::$maxShortLength = max(
@@ -22,6 +41,9 @@ class XPCOptionStack
         );
     }
 
+    /**
+     * @param int $maxLongLength
+     */
     public static function setMaxLongLength($maxLongLength)
     {
         self::$maxLongLength = max(
@@ -30,11 +52,17 @@ class XPCOptionStack
         );
     }
 
+    /**
+     * @return array
+     */
     public static function exportStack()
     {
         return self::$stack;
     }
 
+    /**
+     * @return array
+     */
     public static function exportOptions()
     {
         $shortOptions = '';
@@ -48,6 +76,9 @@ class XPCOptionStack
         return array($shortOptions, $longOptions);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         foreach (self::$stack as $xpcOption) {

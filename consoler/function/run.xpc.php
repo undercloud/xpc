@@ -1,6 +1,9 @@
 <?php
 
 if (false === function_exists('xpc_run')) {
+    /**
+     * @return \XPC\XPCArguments
+     */
 	function xpc_run ()
 	{
 		if (!('cli' === PHP_SAPI)) {

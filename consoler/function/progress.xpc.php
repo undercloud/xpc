@@ -1,6 +1,12 @@
 <?php
 
 if (false === function_exists('xpc_progress')) {
+    /**
+     * @param $done
+     * @param $total
+     * @param null $text
+     * @return void
+     */
 	function xpc_progress($done, $total, $text = null)
     {
 		if (!$total) {

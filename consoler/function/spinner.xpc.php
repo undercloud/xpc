@@ -1,6 +1,9 @@
 <?php
 
 if (false === function_exists('xpc_spinner')) {
+    /**
+     * @param mixed $msg
+     */
 	function xpc_spinner ($msg)
 	{
 		static $spinner = array('/','-','\\','|');

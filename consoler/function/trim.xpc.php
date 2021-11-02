@@ -1,6 +1,11 @@
 <?php
 
 if (false === function_exists('xpc_trim')) {
+    /**
+     * @param $string
+     * @param int $limit
+     * @return string
+     */
 	function xpc_trim($string, $limit = XPC_TERM_SIZE)
 	{
         $len = strlen($string);

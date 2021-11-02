@@ -1,6 +1,11 @@
 <?php
 
 if (false === function_exists('xpc_section')) {
+    /**
+     * @param $title
+     * @param $text
+     * @return void
+     */
 	function xpc_section ($title, $text)
 	{
 		$title = (string) $title;
